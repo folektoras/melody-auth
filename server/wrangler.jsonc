@@ -1,0 +1,82 @@
+{
+  "name": "melody-auth",
+  "compatibility_date": "2025-01-01",
+  "keep_vars": true,
+  "kv_namespaces": [{ "binding": "KV", "id": "92cc7917a8c94b77a382fd7028817a28" }],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "melody-auth",
+      "database_id": "a49647a1-baeb-4711-a84c-5ba9ddc3c4a2",
+      "migrations_dir": "./migrations/sqlite"
+    }
+  ],
+  "assets": { "directory": "./dist/static" },
+  "observability": { "enabled": false },
+  "vars": {
+    "AUTH_SERVER_URL": "https://auth.corememory.uk",
+    "ENVIRONMENT": "prod",
+    "EMAIL_PROVIDER_NAME": "cloudflare",
+    "CLOUDFLARE_SENDER_ADDRESS": "noreply@mail.corememory.uk",
+    "INVITATION_ACCEPT_URL": "https://ra.corememory.uk/accept",
+
+    "COMPANY_LOGO_URL": "",
+    "COMPANY_EMAIL_LOGO_URL": "",
+    "EMAIL_SENDER_NAME": "Door Deal",
+    "TERMS_LINK": "",
+    "PRIVACY_POLICY_LINK": "",
+
+    "SUPPORTED_LOCALES": ["en"],
+    "ENABLE_LOCALE_SELECTOR": true,
+
+    "ENABLE_SIGN_UP": false,
+    "ENABLE_PASSWORD_SIGN_IN": true,
+    "ENABLE_PASSWORD_RESET": true,
+    "ENABLE_NAMES": true,
+    "NAMES_IS_REQUIRED": false,
+    "ENABLE_USER_APP_CONSENT": false,
+    "ENABLE_EMAIL_VERIFICATION": true,
+    "REPLACE_EMAIL_VERIFICATION_WITH_WELCOME_EMAIL": false,
+    "ENABLE_ORG": false,
+    "ALLOW_USER_SWITCH_ORG_ON_SIGN_IN": false,
+    "ENABLE_USER_ATTRIBUTE": false,
+    "BLOCKED_POLICIES": ["change_org"],
+    "ENABLE_PASSWORDLESS_SIGN_IN": false,
+    "EMBEDDED_AUTH_ORIGINS": ["http://localhost:5173", "https://ra.corememory.uk"],
+    "ENABLE_SAML_SSO_AS_SP": false,
+    "ENABLE_APP_BANNER": false,
+
+    "AUTHORIZATION_CODE_EXPIRES_IN": 300,
+    "SPA_ACCESS_TOKEN_EXPIRES_IN": 1800,
+    "SPA_REFRESH_TOKEN_EXPIRES_IN": 604800,
+    "S2S_ACCESS_TOKEN_EXPIRES_IN": 3600,
+    "ID_TOKEN_EXPIRES_IN": 1800,
+    "SERVER_SESSION_EXPIRES_IN": 1800,
+
+    "OTP_MFA_IS_REQUIRED": false,
+    "EMAIL_MFA_IS_REQUIRED": false,
+    "SMS_MFA_IS_REQUIRED": false,
+    "ENFORCE_ONE_MFA_ENROLLMENT": ["otp"],
+    "ALLOW_EMAIL_MFA_AS_BACKUP": true,
+    "ALLOW_PASSKEY_ENROLLMENT": false,
+    "ENABLE_RECOVERY_CODE": false,
+    "ENABLE_MFA_REMEMBER_DEVICE": true,
+
+    "UNLOCK_ACCOUNT_VIA_PASSWORD_RESET": true,
+    "PASSWORD_RESET_EMAIL_THRESHOLD": 5,
+    "PASSWORD_RESET_CODE_THRESHOLD": 5,
+    "ACCOUNT_LOCKOUT_THRESHOLD": 5,
+    "EMAIL_MFA_EMAIL_THRESHOLD": 10,
+    "CHANGE_EMAIL_EMAIL_THRESHOLD": 5,
+    "CHANGE_EMAIL_CODE_THRESHOLD": 5,
+    "EMAIL_VERIFICATION_CODE_THRESHOLD": 5,
+    "ACCOUNT_LOCKOUT_EXPIRES_IN": 86400,
+    "SMS_MFA_MESSAGE_THRESHOLD": 5,
+    "MFA_CODE_VERIFY_THRESHOLD": 10,
+
+    "LOG_LEVEL": "silent",
+    "ENABLE_EMAIL_LOG": false,
+    "ENABLE_SMS_LOG": false,
+    "ENABLE_SIGN_IN_LOG": false
+  }
+}
