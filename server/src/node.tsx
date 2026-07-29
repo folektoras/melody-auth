@@ -5,7 +5,6 @@ import {
   Context, Hono, Next,
 } from 'hono'
 import * as dotenv from 'dotenv'
-import toml from 'toml'
 import { typeConfig } from 'configs'
 import {
   pgAdapter, redisAdapter, smtpAdapter,
@@ -13,8 +12,8 @@ import {
 import { loadRouters } from 'router'
 import samlRoutes from 'saml/route'
 
-const config = toml.parse(readFileSync(
-  './wrangler.toml',
+const config = JSON.parse(readFileSync(
+  './wrangler.jsonc',
   'utf-8',
 ))
 

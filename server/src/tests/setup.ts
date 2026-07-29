@@ -4,13 +4,12 @@ import {
   Context, Next,
 } from 'hono'
 import { vi } from 'vitest'
-import toml from 'toml'
 import {
   fetchMock, session,
 } from 'tests/mock'
 
-const config = toml.parse(readFileSync(
-  './wrangler.toml',
+const config = JSON.parse(readFileSync(
+  './wrangler.jsonc',
   'utf-8',
 ))
 

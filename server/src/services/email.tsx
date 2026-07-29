@@ -1,12 +1,5 @@
 import { Context } from 'hono'
 import { env } from 'hono/adapter'
-import { BrevoMailer } from './email/brevo'
-import { IMailer } from './email/interface'
-import { MailgunMailer } from './email/mailgun'
-import { ResendMailer } from './email/resend'
-import { SendgridMailer } from './email/sendgrid'
-import { PostmarkMailer } from './email/postmark'
-import { SmtpMailer } from './email/smtp'
 import {
   cryptoUtil, loggerUtil,
 } from 'utils'
@@ -28,6 +21,14 @@ import {
   localeConfig, messageConfig, typeConfig,
 } from 'configs'
 import { systemConfig } from 'configs/variable'
+import { BrevoMailer } from './email/brevo'
+import { CloudflareMailer } from './email/cloudflare'
+import { IMailer } from './email/interface'
+import { MailgunMailer } from './email/mailgun'
+import { ResendMailer } from './email/resend'
+import { SendgridMailer } from './email/sendgrid'
+import { PostmarkMailer } from './email/postmark'
+import { SmtpMailer } from './email/smtp'
 
 const checkEmailSetup = (c: Context<typeConfig.Context>) => {
   const {
@@ -41,6 +42,9 @@ const checkEmailSetup = (c: Context<typeConfig.Context>) => {
     RESEND_SENDER_ADDRESS: resendSender,
     POSTMARK_API_KEY: postmarkApiKey,
     POSTMARK_SENDER_ADDRESS: postmarkSender,
+    CLOUDFLARE_ACCOUNT_ID: cloudflareAccountId,
+    CLOUDFLARE_EMAIL_API_TOKEN: cloudflareApiToken,
+    CLOUDFLARE_SENDER_ADDRESS: cloudflareSender,
   } = env(c)
   if (
     !c.env.SMTP &&
@@ -48,7 +52,8 @@ const checkEmailSetup = (c: Context<typeConfig.Context>) => {
     (!brevoApiKey || !brevoSender) &&
     (!sendgridApiKey || !sendgridSender) &&
     (!resendApiKey || !resendSender) &&
-    (!postmarkApiKey || !postmarkSender)
+    (!postmarkApiKey || !postmarkSender) &&
+    (!cloudflareAccountId || !cloudflareApiToken || !cloudflareSender)
   ) {
     loggerUtil.triggerLogger(
       c,
@@ -76,6 +81,8 @@ const buildMailer = (context: Context<typeConfig.Context>): IMailer => {
     return new ResendMailer({ context })
   case 'postmark':
     return new PostmarkMailer({ context })
+  case 'cloudflare':
+    return new CloudflareMailer({ context })
   }
 
   // Keep legacy way below for backward compatibility

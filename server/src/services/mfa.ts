@@ -318,7 +318,7 @@ export const handleGetOtpMfaSetup = async (
     otpSecret = user.otpSecret
   }
 
-  const otpUri = `otpauth://totp/${authCodeStore.appName}:${authCodeStore.user.email}?secret=${otpSecret}&issuer=melody-auth&algorithm=SHA1&digits=6&period=30`
+  const otpUri = `otpauth://totp/${authCodeStore.appName}:${authCodeStore.user.email}?secret=${otpSecret}&issuer=${authCodeStore.appName}&algorithm=SHA1&digits=6&period=30`
 
   return {
     otpUri,

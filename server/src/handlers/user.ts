@@ -675,7 +675,8 @@ export const postResendUserInvitation = async (c: Context<typeConfig.Context>) =
   )
 
   const locale = (bodyDto.locale ?? user.locale ?? supportedLocales[0]) as typeConfig.Locale
-  const invitationUrl = `${serverUrl}/identity/v1/view/verify-email?invitationToken=${invitationToken}&locale=${locale}${bodyDto.signinUrl ? `&signinUrl=${encodeURIComponent(bodyDto.signinUrl)}` : ''}`
+  const invitationBase = env(c).INVITATION_ACCEPT_URL || `${serverUrl}/identity/v1/view/verify-email`
+  const invitationUrl = `${invitationBase}?invitationToken=${invitationToken}&locale=${locale}${bodyDto.signinUrl ? `&signinUrl=${encodeURIComponent(bodyDto.signinUrl)}` : ''}`
 
   await emailService.sendInvitationEmail(
     c,
@@ -820,7 +821,8 @@ export const postUserInvitation = async (c: Context<typeConfig.Context>) => {
     }
   }
 
-  const invitationUrl = `${serverUrl}/identity/v1/view/verify-email?invitationToken=${invitationToken}&locale=${locale}${bodyDto.signinUrl ? `&signinUrl=${encodeURIComponent(bodyDto.signinUrl)}` : ''}`
+  const invitationBase = env(c).INVITATION_ACCEPT_URL || `${serverUrl}/identity/v1/view/verify-email`
+  const invitationUrl = `${invitationBase}?invitationToken=${invitationToken}&locale=${locale}${bodyDto.signinUrl ? `&signinUrl=${encodeURIComponent(bodyDto.signinUrl)}` : ''}`
 
   await emailService.sendInvitationEmail(
     c,
