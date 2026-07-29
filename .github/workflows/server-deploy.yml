@@ -1,10 +1,9 @@
 name: server-deploy CI
 
 on:
+  # Manual only — the auth server is high-blast-radius (a bad deploy locks everyone
+  # out), so deploy on demand and pick the branch with our changes (door-deal).
   workflow_dispatch: {}
-  push:
-    branches:
-      - main
 
 jobs:
   deploy:
@@ -16,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install dependencies
         run: cd server && npm ci

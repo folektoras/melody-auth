@@ -24,3 +24,7 @@ coverage/
 
 tsconfig.tsbuildinfo
 .DS_Store
+
+# We drive this fork with npm (package-lock.json); ignore stray bun lockfiles.
+bun.lock
+server/bun.lock
