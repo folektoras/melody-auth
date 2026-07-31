@@ -61,7 +61,7 @@ export const welcomeEmail = Object.freeze({
 
 export const passwordResetEmail = Object.freeze({
   subject: {
-    en: 'Reset your password',
+    en: 'Reset your Door Deal password',
     fr: 'Réinitialisez votre mot de passe',
     zh: '重置您的密码',
   },
@@ -71,7 +71,7 @@ export const passwordResetEmail = Object.freeze({
     zh: '重置您的密码',
   },
   desc: {
-    en: 'Here is your reset code, this code will be expired after {{expiresIn}} hours',
+    en: 'Use the code below to reset your Door Deal password. It expires in {{expiresIn}} hours.',
     fr: 'Voici votre code de réinitialisation. Ce code expirera après {{expiresIn}} heures.',
     zh: '这是您的重置码，将在 {{expiresIn}} 小时后过期',
   },
@@ -97,17 +97,17 @@ export const changeEmailVerificationEmail = Object.freeze({
 
 export const emailMfaEmail = Object.freeze({
   subject: {
-    en: 'Account verification code',
+    en: 'Your Door Deal verification code',
     fr: 'Code de vérification du compte',
     zh: '账户验证码',
   },
   title: {
-    en: 'Account verification code',
+    en: 'Your verification code',
     fr: 'Code de vérification du compte',
     zh: '账户验证码',
   },
   desc: {
-    en: 'Here is your MFA code, this code will be expired after {{expiresIn}} minutes',
+    en: 'Enter the code below to finish signing in. It expires in {{expiresIn}} minutes.',
     fr: 'Voici votre code MFA. Ce code expirera après {{expiresIn}} minutes.',
     zh: '这是您的验证码，将在 {{expiresIn}} 分钟内过期',
   },
@@ -146,7 +146,7 @@ export const smsMfaMsg = Object.freeze({
 
 export const invitationEmail = Object.freeze({
   subject: {
-    en: `You've been invited to join ${systemConfig.name}`,
+    en: "You're invited to Door Deal",
     fr: `Vous avez été invité à rejoindre ${systemConfig.name}`,
     zh: `您已被邀请加入 ${systemConfig.name}`,
   },
@@ -156,12 +156,12 @@ export const invitationEmail = Object.freeze({
     zh: `您已被邀请加入 ${systemConfig.name}`,
   },
   desc: {
-    en: 'You have been invited to create an account. Click the button below to accept your invitation and set up your password. This invitation will expire after {{expiresIn}} days.',
+    en: 'You have been invited to create your Door Deal account. Click the button below to accept and set your password. This invitation expires in {{expiresIn}} days.',
     fr: "Vous avez été invité à créer un compte. Cliquez sur le bouton ci-dessous pour accepter l'invitation et définir votre mot de passe. Cette invitation expirera après {{expiresIn}} jours.",
     zh: '您已被邀请创建账户。请点击下方按钮接受邀请并设置密码。此邀请将在 {{expiresIn}} 天后过期。',
   },
   accept: {
-    en: 'Accept Invitation',
+    en: 'Accept invitation',
     fr: "Accepter l'invitation",
     zh: '接受邀请',
   },

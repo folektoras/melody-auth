@@ -15,55 +15,42 @@ const Invitation = ({
     <Layout
       branding={branding}
       locale={locale}>
+      <h1 style='margin:0 0 12px 0; color:#051a52; font-size:22px; font-weight:700; text-align:center;'>
+        {localeConfig.invitationEmail.title[locale]}
+      </h1>
+      <p style='margin:0 0 28px 0; color:#3a5a87; font-size:16px; line-height:1.6; text-align:center;'>
+        {localeConfig.invitationEmail.desc[locale].replace(
+          '{{expiresIn}}',
+          String(expiresIn),
+        )}
+      </p>
       <table
+        role='presentation'
+        width='100%'
         cellpadding='0'
         cellspacing='0'
-        border={0}
-        width='100%'>
+        border={0}>
         <tr>
           <td align='center'>
-            <table
-              cellpadding='0'
-              cellspacing='0'
-              border={0}
+            <a
+              href={invitationUrl}
+              style='display:inline-block; padding:13px 32px; background-color:#0077b6; color:#ffffff; font-size:16px; font-weight:600; text-decoration:none; border-radius:8px;'
             >
-              <tr>
-                <td align='center'>
-                  <h1 style='color: #333333; font-size: 24px; margin: 0; padding-bottom: 20px;'>
-                    {localeConfig.invitationEmail.title[locale]}
-                  </h1>
-                </td>
-              </tr>
-              <tr>
-                <td align='center'>
-                  <p style='margin: 0; padding-bottom: 20px;'>
-                    {localeConfig.invitationEmail.desc[locale].replace(
-                      '{{expiresIn}}',
-                      String(expiresIn),
-                    )}
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  align='center'
-                  style='padding-bottom: 20px;'
-                >
-                  <a
-                    href={invitationUrl}
-                    style='
-                      display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: #ffffff;
-                      text-decoration: none; border-radius: 4px;
-                    '
-                  >
-                    {localeConfig.invitationEmail.accept[locale]}
-                  </a>
-                </td>
-              </tr>
-            </table>
+              {localeConfig.invitationEmail.accept[locale]}
+            </a>
           </td>
         </tr>
       </table>
+      <p style='margin:20px 0 0 0; color:#6f8eaf; font-size:13px; line-height:1.6; text-align:center;'>
+        If the button doesn&rsquo;t work, copy and paste this link into your browser:
+        <br />
+        <a
+          href={invitationUrl}
+          style='color:#0077b6; word-break:break-all;'
+        >
+          {invitationUrl}
+        </a>
+      </p>
     </Layout>
   )
 }
