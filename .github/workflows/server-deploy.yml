@@ -1,8 +1,16 @@
 name: server-deploy CI
 
 on:
-  # Manual only — the auth server is high-blast-radius (a bad deploy locks everyone
-  # out), so deploy on demand and pick the branch with our changes (door-deal).
+  # Auto-deploy the auth Worker whenever the server changes on main. The auth
+  # server is high-blast-radius (a bad deploy can lock everyone out), so scope to
+  # server/** — unrelated pushes (docs, admin-panel) don't trigger a redeploy.
+  push:
+    branches: [main]
+    paths:
+      - 'server/**'
+      - '.github/workflows/server-deploy.yml'
+  # Keep a manual trigger too (Actions tab -> Run workflow) to redeploy on demand
+  # or deploy from another branch.
   workflow_dispatch: {}
 
 jobs:
