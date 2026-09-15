@@ -37,5 +37,25 @@ export default defineConfig(async ({ mode }) => {
         entry: 'src/index.tsx',
       }),
     ],
+    resolve: {
+      alias: {
+        // `router` means src/router.tsx, resolved via tsconfig baseUrl "./src".
+        // When this fork is checked out as a git submodule inside a monorepo,
+        // Node resolution walks up past services/ and finds a HOISTED npm
+        // package literally named `router` (a CommonJS Express dep pulled in
+        // transitively by express/hono/react-router/wrangler) before it gets to
+        // src/. Boot then dies with:
+        //   Named export 'loadRouters' not found. The requested module 'router'
+        //   is a CommonJS module...
+        // A Vite alias is applied before node_modules resolution, so src wins.
+        // Standalone checkouts are unaffected — there is no parent node_modules
+        // to shadow anything. `router` is currently the only name under src/
+        // that collides; re-check if new top-level modules are added there.
+        router: resolve(
+          __dirname,
+          'src/router.tsx',
+        ),
+      },
+    },
   }
 })

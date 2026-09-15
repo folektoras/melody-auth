@@ -32,3 +32,10 @@ server/bun.lock
 .dev.vars*
 !.dev.vars.example
 !.env.example
+
+# Local D1 dumps. `wrangler d1 export` writes real rows from the auth database —
+# bcrypt password hashes, `otpSecret` (the MFA seed), `recoveryCodeHash`. Never
+# committable, and easy to sweep up with `git add -A` if it isn't listed here.
+backup.sql
+server/backup.sql
+*.d1.sql
