@@ -17,8 +17,8 @@
     "AUTH_SERVER_URL": "https://auth.corememory.uk",
     "ENVIRONMENT": "prod",
     "EMAIL_PROVIDER_NAME": "cloudflare",
-    "CLOUDFLARE_SENDER_ADDRESS": "noreply@mail.corememory.uk",
-    "INVITATION_ACCEPT_URL": "https://ra.corememory.uk/accept",
+    "CLOUDFLARE_SENDER_ADDRESS": "noreply@mail.door-deal.com",
+    "INVITATION_ACCEPT_URL": "https://app.door-deal.com/accept",
 
     "COMPANY_LOGO_URL": "",
     "COMPANY_EMAIL_LOGO_URL": "",
@@ -42,7 +42,7 @@
     "ENABLE_USER_ATTRIBUTE": false,
     "BLOCKED_POLICIES": ["change_org"],
     "ENABLE_PASSWORDLESS_SIGN_IN": false,
-    "EMBEDDED_AUTH_ORIGINS": ["http://localhost:5173", "https://ra.corememory.uk"],
+    "EMBEDDED_AUTH_ORIGINS": ["http://localhost:5173", "https://ra.corememory.uk", "https://app.door-deal.com"],
     "ENABLE_SAML_SSO_AS_SP": false,
     "ENABLE_APP_BANNER": false,
 
@@ -75,7 +75,7 @@
     "MFA_CODE_VERIFY_THRESHOLD": 10,
 
     "LOG_LEVEL": "silent",
-    "ENABLE_EMAIL_LOG": false,
+    "ENABLE_EMAIL_LOG": true,
     "ENABLE_SMS_LOG": false,
     "ENABLE_SIGN_IN_LOG": false
   }
