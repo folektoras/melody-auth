@@ -1,0 +1,24 @@
+server/wrangler.jsonc
+  s_2f785d6f5a40f5::t_adf67e91c50572 59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e955afdabeae5e8222fa64dbc0c12d4484d291c6",
+  "prompts": {},
+  "humans": {
+    "h_eff73a80a827b2": {
+      "author": "cstergianos <christos@aave.com>"
+    }
+  },
+  "sessions": {
+    "s_2f785d6f5a40f5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c67101c-5fed-4b32-a834-eb2dd2835059",
+        "model": "claude-opus-5"
+      },
+      "human_author": "cstergianos <christos@aave.com>"
+    }
+  }
+}
